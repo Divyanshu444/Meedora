@@ -1,0 +1,10 @@
+export type Money = { amount: string; currencyCode: string }
+export type ShopImage = { url: string; altText: string | null; width: number; height: number }
+export type Connection<T> = { nodes: T[]; pageInfo: { hasNextPage: boolean; endCursor: string | null } }
+export type Variant = { id: string; title: string; availableForSale: boolean; quantityAvailable?: number | null; price: Money; compareAtPrice: Money | null; selectedOptions: { name: string; value: string }[]; image: ShopImage | null }
+export type Product = { id: string; handle: string; title: string; description: string; productType: string; tags: string[]; availableForSale: boolean; updatedAt: string; featuredImage: ShopImage | null; images: { nodes: ShopImage[] }; priceRange: { minVariantPrice: Money; maxVariantPrice?: Money }; variants: { nodes: Variant[] }; options: { name: string; values: string[] }[]; seo: { title: string | null; description: string | null }; metafields: ({ key: string; value: string } | null)[] }
+export type Collection = { id: string; handle: string; title: string; description: string; image: ShopImage | null; seo: { title: string | null; description: string | null } }
+export type CartLine = { id: string; quantity: number; cost: { totalAmount: Money }; merchandise: Variant & { product: { id: string; title: string; handle: string } } }
+export type Cart = { id: string; checkoutUrl: string; totalQuantity: number; cost: { subtotalAmount: Money; totalAmount: Money }; lines: { nodes: CartLine[] } }
+export type Policy = { title: string; body: string; url: string }
+export type Shop = { name: string; description: string | null; primaryDomain: { url: string }; privacyPolicy: Policy | null; refundPolicy: Policy | null; shippingPolicy: Policy | null; termsOfService: Policy | null }
