@@ -9,6 +9,7 @@ import { Separator } from '@/components/ui/separator'
 
 const helpLinks = [
   { href: '/pages/shipping', label: 'Shipping information' },
+  { href: '/pages/shipping#tracking', label: 'Track your order' },
   { href: '/pages/returns', label: 'Returns & exchanges' },
   { href: '/pages/size-guide', label: 'Size & fit guide' },
   { href: '/pages/care', label: 'Jewelry care' },

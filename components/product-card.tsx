@@ -59,12 +59,12 @@ export function ProductCard({
         {/* Badges on image — matching GIVA/Rubans style */}
         <div className="absolute left-2.5 top-2.5 flex flex-col gap-1.5 items-start">
           {isBestseller && (
-            <span className="rounded-xs bg-foreground px-2 py-0.5 text-[10px] font-bold tracking-wider text-background shadow-xs">
-              BESTSELLER
+            <span className="rounded-xs bg-foreground px-2 py-0.5 text-[10px] font-medium tracking-wider text-background shadow-xs uppercase">
+              Bestseller
             </span>
           )}
           {hasDiscount && product.availableForSale && (
-            <span className="rounded-xs bg-primary px-2 py-0.5 text-[10px] font-bold tracking-wider text-primary-foreground shadow-xs">
+            <span className="rounded-xs bg-primary px-2 py-0.5 text-[10px] font-medium tracking-wider text-primary-foreground shadow-xs uppercase">
               {discountPercentage}% OFF
             </span>
           )}

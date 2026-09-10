@@ -61,8 +61,9 @@ const pages: Record<string, PageContent> = {
           <li>Metro cities: 3–5 business days</li>
         </ul>
 
-        <h2>Tracking your order</h2>
-        <p>Once your order ships, you&apos;ll receive a tracking link via email and SMS. You can use this to follow your package in real time.</p>
+        <h2 id="tracking">Tracking your order</h2>
+        <p>Once your order is dispatched, you&apos;ll receive an automated tracking link via SMS, WhatsApp, and email with the courier tracking AWB (Delhivery, Blue Dart, or Shiprocket). You can track your shipment live at any time.</p>
+        <p>Need urgent assistance tracking an existing order? Message our support team directly on <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a> with your order number.</p>
 
         <h2>Shipping charges</h2>
         <p>Shipping charges are calculated at checkout based on your location and order value. We occasionally offer free shipping promotions — keep an eye on our announcements.</p>

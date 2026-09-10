@@ -84,6 +84,30 @@ export function trackAddToCart(item: {
   }
 }
 
+/** Track initiate checkout events — call when user clicks checkout in CartDrawer */
+export function trackInitiateCheckout(cart: {
+  totalAmount: string
+  currency: string
+  itemsCount: number
+}) {
+  // Meta Pixel
+  if (META_PIXEL_ID && window.fbq) {
+    window.fbq('track', 'InitiateCheckout', {
+      value: parseFloat(cart.totalAmount),
+      currency: cart.currency,
+      num_items: cart.itemsCount,
+    })
+  }
+
+  // GA4
+  if (GA4_ID && window.gtag) {
+    window.gtag('event', 'begin_checkout', {
+      currency: cart.currency,
+      value: parseFloat(cart.totalAmount),
+    })
+  }
+}
+
 export function AnalyticsScripts() {
   if (!META_PIXEL_ID && !GA4_ID) return null
 

@@ -38,6 +38,7 @@ import {
 } from '@/components/ui/sheet'
 import { PincodeChecker } from './pincode-checker'
 import { ProductReviews } from './product-reviews'
+import { trackAddToCart } from './analytics'
 
 function getProductDetails(product: Product) {
   const existing = (product.metafields ?? []).filter(
@@ -127,15 +128,24 @@ export function ProductDetail({ product }: { product: Product }) {
 
   const details = getProductDetails(product)
   const labels: Record<string, string> = {
-    material: 'Materials & Craftsmanship',
-    plating: 'Finish & Micron Plating',
-    care: 'A Little Care Goes a Long Way',
-    styling: 'Styling & Stacking Notes',
-    size: 'Size & Fit Specifications',
+    material: 'Materials & craftsmanship',
+    plating: 'Finish & micron plating',
+    care: 'Jewelry care & preservation',
+    styling: 'Styling & stacking notes',
+    size: 'Size & fit specifications',
   }
 
   const add = () => {
-    if (variant) void update({ action: 'add', merchandiseId: variant.id, quantity })
+    if (variant) {
+      void update({ action: 'add', merchandiseId: variant.id, quantity })
+      trackAddToCart({
+        id: variant.id,
+        name: product.title,
+        price: currentPrice.amount,
+        currency: currentPrice.currencyCode,
+        quantity,
+      })
+    }
   }
 
   const compareAt = variant?.compareAtPrice
@@ -180,12 +190,12 @@ export function ProductDetail({ product }: { product: Product }) {
             {/* Badges */}
             <div className="absolute left-4 top-4 flex flex-col gap-2">
               {product.tags.includes('Bestseller') && (
-                <span className="rounded-xs bg-foreground px-2.5 py-1 text-[11px] font-semibold tracking-wider text-background shadow-xs">
-                  ★ BESTSELLER
+                <span className="rounded-xs bg-foreground px-2.5 py-1 text-[11px] font-medium tracking-wider text-background shadow-xs uppercase">
+                  Bestseller
                 </span>
               )}
               {hasDiscount && (
-                <span className="rounded-xs bg-primary px-2.5 py-1 text-[11px] font-bold tracking-wider text-primary-foreground shadow-xs">
+                <span className="rounded-xs bg-primary px-2.5 py-1 text-[11px] font-medium tracking-wider text-primary-foreground shadow-xs uppercase">
                   {discountPercent}% OFF
                 </span>
               )}
@@ -298,8 +308,8 @@ export function ProductDetail({ product }: { product: Product }) {
           {/* Variant Selector */}
           {product.variants.nodes.length > 1 ? (
             <fieldset className="flex flex-col gap-2.5">
-              <legend className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Select Option / Finish:
+              <legend className="text-xs font-medium tracking-wide text-muted-foreground">
+                Select finish:
               </legend>
               <div className="flex flex-wrap gap-2">
                 {product.variants.nodes.map((v) => {
@@ -390,11 +400,11 @@ export function ProductDetail({ product }: { product: Product }) {
           <div className="grid grid-cols-2 gap-3 border-y border-border py-4 text-xs text-muted-foreground">
             <div className="flex items-center gap-2">
               <LockKeyhole className="size-4 text-primary" />
-              <span>100% Secure Checkout</span>
+              <span>100% secure checkout</span>
             </div>
             <div className="flex items-center gap-2">
               <PackageCheck className="size-4 text-primary" />
-              <span>Discreet Signature Gift Box</span>
+              <span>Signature gift presentation box</span>
             </div>
           </div>
 
@@ -415,7 +425,7 @@ export function ProductDetail({ product }: { product: Product }) {
 
             <AccordionItem value="shipping">
               <AccordionTrigger className="text-base font-serif">
-                Shipping & Easy Returns
+                Shipping & returns
               </AccordionTrigger>
               <AccordionContent>
                 <div className="flex flex-col gap-2 text-sm leading-relaxed text-muted-foreground">
@@ -458,7 +468,7 @@ export function ProductDetail({ product }: { product: Product }) {
       {/* ─── Sticky Mobile Add-to-Bag Bar ─── */}
       <div className="fixed inset-x-0 bottom-0 z-20 flex items-center justify-between border-t border-border bg-background/95 px-5 py-3 backdrop-blur-md lg:hidden">
         <div className="flex flex-col">
-          <span className="text-[11px] text-muted-foreground">Total Price</span>
+          <span className="text-[11px] text-muted-foreground">Total price</span>
           <Price
             money={currentPrice}
             className="text-base font-semibold text-foreground"

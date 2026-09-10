@@ -85,9 +85,9 @@ export function ProductReviews({
         {/* Header and Summary */}
         <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="eyebrow">Customer Experiences</p>
+            <p className="eyebrow">Customer experiences</p>
             <h2 id="customer-reviews-heading" className="display-heading text-2xl sm:text-3xl">
-              Verified Reviews for {productTitle}
+              Verified reviews for {productTitle}
             </h2>
             <p className="text-xs text-muted-foreground mt-1">
               Real thoughts from women adorning themselves daily.

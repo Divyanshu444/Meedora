@@ -44,24 +44,27 @@ function getMockProductsForCollection(handle: string): Product[] {
     case 'anklets':
       return mockProducts.filter((p) => p.productType === 'Anklets')
     case 'sets':
-      return mockProducts.filter((p) => p.tags.includes('Festive'))
+      return mockProducts.filter((p) => p.productType === 'Jewellery Sets')
     case 'everyday':
       return mockProducts.filter((p) => p.tags.includes('Everyday'))
     case 'festive':
       return mockProducts.filter((p) => p.tags.includes('Festive'))
     case 'gifting-edit':
+      return mockProducts.filter((p) => p.tags.includes('Gifting'))
     case 'gifts-for-her':
       return mockProducts.filter((p) => p.tags.includes('Gifting') || p.tags.includes('Everyday'))
     case 'gifts-under-999':
       return mockProducts.filter((p) => parseFloat(p.priceRange.minVariantPrice.amount) <= 999)
+    case 'bestsellers':
+      return mockProducts.filter((p) => p.tags.includes('Bestseller'))
+    case 'new-arrivals':
+      return [...mockProducts].reverse()
     case 'sale':
       return mockProducts.filter((p) => {
         const compareAt = p.variants.nodes[0]?.compareAtPrice?.amount
         const price = p.priceRange.minVariantPrice.amount
         return compareAt && parseFloat(compareAt) > parseFloat(price)
       })
-    case 'bestsellers':
-    case 'new-arrivals':
     case 'all':
     default:
       return mockProducts

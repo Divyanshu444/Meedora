@@ -65,8 +65,8 @@ export function PincodeChecker() {
     <div className="rounded-sm border border-border/80 bg-secondary/30 p-4">
       <div className="mb-2.5 flex items-center gap-2">
         <MapPin className="size-4 text-primary" />
-        <span className="text-xs font-semibold uppercase tracking-wider text-foreground">
-          Delivery Options & Pincode Check
+        <span className="text-xs font-medium tracking-wide text-foreground">
+          Estimated delivery & pincode check
         </span>
       </div>
 

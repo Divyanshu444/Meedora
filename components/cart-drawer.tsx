@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, LockKeyhole, Minus, Plus, ShoppingBag, Trash2 } from 'lucide-react'
+import { trackInitiateCheckout } from './analytics'
 import { useCart } from './cart-provider'
 import { Price } from './price'
 import { Button } from '@/components/ui/button'
@@ -14,6 +15,11 @@ export function CartDrawer() {
   const { cart, open, setOpen, pending, loading, error, retry, update } = useCart()
   function checkout() {
     if (!cart?.checkoutUrl) return
+    trackInitiateCheckout({
+      totalAmount: cart.cost.subtotalAmount.amount,
+      currency: cart.cost.subtotalAmount.currencyCode,
+      itemsCount: cart.totalQuantity,
+    })
     const url = new URL(cart.checkoutUrl)
     if (url.protocol !== 'https:') return
     url.searchParams.set('channel', 'online_store')
