@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ChevronRight, ArrowRight, MessageCircle, Mail } from 'lucide-react'
 import { getShop } from '@/lib/shopify'
-import { contentLinks } from '@/lib/site'
+import { contentLinks, siteConfig } from '@/lib/site'
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
 
 export const revalidate = 3600
@@ -94,7 +94,7 @@ const pages: Record<string, PageContent> = {
 
         <h2>How to return</h2>
         <p>
-          Reach out to us via <a href="https://wa.me/919XXXXXXXXX">WhatsApp</a> or email at <a href="mailto:hello@meedora.in">hello@meedora.in</a> with your order number and reason for return. We&apos;ll guide you through the process.
+          Reach out to us via <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp</a> or email at <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a> with your order number and reason for return. We&apos;ll guide you through the process.
         </p>
 
         <h2>Refunds</h2>
@@ -134,7 +134,7 @@ const pages: Record<string, PageContent> = {
 
         <h2>Still unsure?</h2>
         <p>
-          <a href="https://wa.me/919XXXXXXXXX">Message us on WhatsApp</a> — we&apos;re happy to help you find the right fit.
+          <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a> — we&apos;re happy to help you find the right fit.
         </p>
       </div>
     ),
@@ -185,7 +185,7 @@ const pages: Record<string, PageContent> = {
 
         <h2>WhatsApp (fastest)</h2>
         <p>
-          <a href="https://wa.me/919XXXXXXXXX" className="inline-flex items-center gap-2">
+          <a href={siteConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2">
             <MessageCircle className="size-4" /> Chat with us on WhatsApp
           </a>
         </p>

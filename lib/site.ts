@@ -1,5 +1,15 @@
 export const siteUrl = `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL || 'localhost:3000'}`
 
+export const siteConfig = {
+  name: 'Meedora',
+  tagline: 'Your Everyday Adore',
+  whatsappNumber: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919876543210',
+  whatsappUrl: `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '919876543210'}?text=${encodeURIComponent('Hi Meedora! I have a question about your handcrafted jewelry.')}`,
+  supportEmail: 'hello@meedora.in',
+  instagramHandle: 'meedora.in',
+  freeShippingThreshold: 1499,
+}
+
 /** Three-axis navigation structure (Category / Edit / Gifting) */
 export const categoryCollections = [
   { handle: 'earrings', title: 'Earrings' },

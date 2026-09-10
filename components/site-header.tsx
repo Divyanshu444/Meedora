@@ -14,6 +14,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from '
 import { Field, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
+import { FestiveBanner } from './festive-banner'
 
 export function Wordmark({ footer = false }: { footer?: boolean }) {
   return (
@@ -280,6 +281,9 @@ export function SiteHeader({ collections: _collections, shopUrl }: { collections
 
   return (
     <>
+      {/* Festive Offer Ribbon */}
+      <FestiveBanner />
+
       {/* Announcement bar */}
       <div className="flex h-9 items-center justify-center bg-secondary px-4 text-center text-sm text-secondary-foreground">
         Free shipping on orders above ₹1,499{' '}

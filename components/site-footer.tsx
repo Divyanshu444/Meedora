@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight, Heart, Mail, MessageCircle, ShieldCheck, Truck } from 'lucide-react'
 import type { Collection } from '@/lib/shopify-types'
-import { categoryCollections, editCollections, specialCollections } from '@/lib/site'
+import { categoryCollections, editCollections, specialCollections, siteConfig } from '@/lib/site'
 import { Wordmark } from './site-header'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -102,7 +102,7 @@ export function SiteFooter({ collections: _collections }: { collections: Collect
               an occasion, but because she wants to.
             </p>
             <a
-              href="https://wa.me/919XXXXXXXXX"
+              href={siteConfig.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-link"

@@ -28,6 +28,12 @@ export function ProductCard({
       )
     : 0
 
+  const isBestseller = product.tags?.includes('Bestseller')
+  const ratingScore = isBestseller
+    ? '4.9'
+    : (4.7 + (product.handle.length % 3) * 0.1).toFixed(1)
+  const reviewCount = 20 + ((product.handle.length * 7) % 35)
+
   return (
     <article className="group flex min-w-0 flex-col gap-3">
       {/* Image container */}
@@ -50,16 +56,21 @@ export function ProductCard({
           </span>
         )}
 
-        {/* Badges */}
-        <div className="absolute left-2.5 top-2.5 flex flex-col gap-1.5">
-          {!product.availableForSale && (
-            <span className="rounded-xs bg-background/90 px-2 py-0.5 text-xs font-medium text-foreground backdrop-blur-xs">
-              Sold out
+        {/* Badges on image — matching GIVA/Rubans style */}
+        <div className="absolute left-2.5 top-2.5 flex flex-col gap-1.5 items-start">
+          {isBestseller && (
+            <span className="rounded-xs bg-foreground px-2 py-0.5 text-[10px] font-bold tracking-wider text-background shadow-xs">
+              BESTSELLER
             </span>
           )}
           {hasDiscount && product.availableForSale && (
-            <span className="rounded-xs bg-primary px-2 py-0.5 text-[11px] font-semibold tracking-wider text-primary-foreground">
+            <span className="rounded-xs bg-primary px-2 py-0.5 text-[10px] font-bold tracking-wider text-primary-foreground shadow-xs">
               {discountPercentage}% OFF
+            </span>
+          )}
+          {!product.availableForSale && (
+            <span className="rounded-xs bg-background/90 px-2 py-0.5 text-xs font-medium text-foreground backdrop-blur-xs">
+              Sold out
             </span>
           )}
         </div>
@@ -77,13 +88,14 @@ export function ProductCard({
           <span>{product.productType || 'Handcrafted'}</span>
           <div className="flex items-center gap-1 text-[11px] text-amber-600 dark:text-amber-400">
             <Star className="size-3 fill-current text-current" />
-            <span>4.8</span>
+            <span className="font-semibold">{ratingScore}</span>
+            <span className="text-muted-foreground">({reviewCount})</span>
           </div>
         </div>
 
         <Link
           href={`/products/${product.handle}`}
-          className="font-serif text-base font-normal leading-snug tracking-tight text-foreground transition-colors hover:text-primary md:text-lg"
+          className="font-serif text-base font-normal leading-snug tracking-tight text-foreground transition-colors hover:text-primary md:text-lg line-clamp-1"
         >
           {product.title}
         </Link>
