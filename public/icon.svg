@@ -1,26 +1,25 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 210" fill="none">
   <style>
-    @media (prefers-color-scheme: light) {
-      .background { fill: black; }
-      .foreground { fill: white; }
-    }
     @media (prefers-color-scheme: dark) {
-      .background { fill: white; }
-      .foreground { fill: black; }
+      .gold-fill { fill: url(#goldGradientDark); }
+    }
+    @media (prefers-color-scheme: light) {
+      .gold-fill { fill: url(#goldGradientLight); }
     }
   </style>
-  <g clip-path="url(#clip0_7960_43945)">
-    <rect class="background" width="180" height="180" rx="37" />
-    <g style="transform: scale(95%); transform-origin: center">
-      <path class="foreground"
-        d="M101.141 53H136.632C151.023 53 162.689 64.6662 162.689 79.0573V112.904H148.112V79.0573C148.112 78.7105 148.098 78.3662 148.072 78.0251L112.581 112.898C112.701 112.902 112.821 112.904 112.941 112.904H148.112V126.672H112.941C98.5504 126.672 86.5638 114.891 86.5638 100.5V66.7434H101.141V100.5C101.141 101.15 101.191 101.792 101.289 102.422L137.56 66.7816C137.255 66.7563 136.945 66.7434 136.632 66.7434H101.141V53Z" />
-      <path class="foreground"
-        d="M65.2926 124.136L14 66.7372H34.6355L64.7495 100.436V66.7372H80.1365V118.47C80.1365 126.278 70.4953 129.958 65.2926 124.136Z" />
-    </g>
-  </g>
   <defs>
-    <clipPath id="clip0_7960_43945">
-      <rect width="180" height="180" fill="white" />
-    </clipPath>
+    <linearGradient id="goldGradientLight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9C7738" />
+      <stop offset="40%" stop-color="#C8A663" />
+      <stop offset="75%" stop-color="#8E6A2D" />
+      <stop offset="100%" stop-color="#72511E" />
+    </linearGradient>
+    <linearGradient id="goldGradientDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DFBD78" />
+      <stop offset="45%" stop-color="#F3DC9B" />
+      <stop offset="80%" stop-color="#CBA763" />
+      <stop offset="100%" stop-color="#A58039" />
+    </linearGradient>
   </defs>
+  <path class="gold-fill" d="M 15 51 L 14 55 L 12 57 L 12 63 L 10 66 L 8 83 L 8 103 L 10 110 L 10 118 L 12 122 L 13 129 L 16 135 L 16 138 L 18 140 L 18 143 L 20 145 L 22 151 L 33 167 L 48 183 L 52 185 L 54 188 L 57 189 L 61 193 L 67 196 L 68 195 L 72 198 L 76 199 L 77 198 L 83 201 L 89 200 L 94 202 L 97 198 L 101 196 L 108 195 L 111 196 L 119 193 L 122 190 L 125 189 L 125 187 L 127 185 L 136 182 L 136 180 L 142 174 L 148 171 L 148 168 L 155 159 L 163 144 L 163 141 L 165 140 L 166 133 L 168 130 L 170 123 L 172 107 L 171 85 L 172 80 L 171 71 L 169 68 L 170 64 L 168 63 L 168 61 L 161 52 L 159 51 L 150 53 L 138 57 L 128 62 L 108 76 L 92 93 L 89 95 L 87 94 L 75 81 L 55 66 L 37 57 L 25 53 Z M 91 115 L 93 116 L 97 124 L 101 140 L 100 163 L 102 165 L 102 168 L 94 185 L 91 188 L 86 188 L 84 181 L 80 174 L 79 150 L 81 133 L 87 118 Z M 153 61 L 157 64 L 159 81 L 158 114 L 156 118 L 156 124 L 154 127 L 154 130 L 156 131 L 155 136 L 149 149 L 138 165 L 128 175 L 117 183 L 106 186 L 105 182 L 113 167 L 115 147 L 113 143 L 113 138 L 111 134 L 111 130 L 109 129 L 109 127 L 107 125 L 106 121 L 97 108 L 97 104 L 100 98 L 104 95 L 106 91 L 117 82 L 118 80 L 124 78 L 127 75 L 131 74 L 138 68 L 142 66 L 145 66 Z M 24 60 L 35 66 L 39 66 L 60 78 L 69 86 L 72 87 L 77 95 L 84 101 L 84 104 L 78 115 L 74 118 L 72 124 L 70 126 L 70 130 L 67 135 L 66 156 L 68 167 L 71 176 L 75 183 L 74 187 L 72 188 L 58 181 L 52 177 L 47 171 L 45 170 L 41 162 L 36 157 L 35 152 L 29 142 L 28 136 L 26 134 L 25 127 L 23 124 L 23 114 L 22 108 L 20 104 L 20 82 L 22 71 L 21 64 L 22 61 Z M 88 9 L 87 20 L 84 25 L 80 29 L 66 34 L 68 35 L 68 39 L 72 41 L 77 41 L 81 44 L 85 50 L 88 60 L 90 61 L 95 53 L 95 50 L 103 41 L 107 40 L 109 38 L 110 33 L 104 32 L 99 28 L 99 26 L 96 22 L 96 18 L 93 16 L 90 10 Z" fill="url(#goldGradientLight)" fill-rule="evenodd" />
 </svg>

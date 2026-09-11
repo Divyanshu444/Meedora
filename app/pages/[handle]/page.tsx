@@ -5,6 +5,7 @@ import { ChevronRight, ArrowRight, MessageCircle, Mail } from 'lucide-react'
 import { getShop } from '@/lib/shopify'
 import { contentLinks, siteConfig } from '@/lib/site'
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
+import { MeedoraLogo } from '@/components/meedora-logo'
 
 export const revalidate = 3600
 
@@ -21,6 +22,9 @@ const pages: Record<string, PageContent> = {
     description: 'Meedora was born from a simple idea — that adorning yourself doesn\'t need a reason. Learn about our journey of creating handcrafted jewelry for everyday self-expression.',
     body: (
       <div className="policy-copy">
+        <div className="my-6 flex justify-center">
+          <MeedoraLogo variant="full" asLink={false} />
+        </div>
         <h2>Your everyday adore</h2>
         <p>
           Meedora was born from a simple, quiet realization: that we don&apos;t need a reason to adorn ourselves. Not a wedding invitation, not a festival, not someone else&apos;s approval — just the feeling of wanting to choose something beautiful, for yourself, today.

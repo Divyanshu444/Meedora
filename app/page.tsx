@@ -8,6 +8,7 @@ import { CategoryGrid } from '@/components/category-grid'
 import { EditBanners } from '@/components/edit-banners'
 import { GiftingSection } from '@/components/gifting-section'
 import { Button } from '@/components/ui/button'
+import { MeedoraLogo } from '@/components/meedora-logo'
 
 export const revalidate = 60
 
@@ -117,6 +118,9 @@ export default async function HomePage() {
             />
           </div>
           <div className="flex flex-col gap-6">
+            <div className="w-fit">
+              <MeedoraLogo variant="mark" asLink={false} />
+            </div>
             <p className="eyebrow">The Meedora ritual</p>
             <h2 className="display-heading text-3xl sm:text-4xl lg:text-5xl">
               A quiet act of choosing yourself

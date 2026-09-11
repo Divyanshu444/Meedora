@@ -15,16 +15,10 @@ import { Field, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
 import { FestiveBanner } from './festive-banner'
+import { MeedoraLogo } from './meedora-logo'
 
 export function Wordmark({ footer = false }: { footer?: boolean }) {
-  return (
-    <Link href="/" aria-label="Meedora home" className="flex w-fit flex-col items-center">
-      <span className={cn('font-serif leading-none tracking-[-0.055em]', footer ? 'text-5xl' : 'text-[38px]')}>
-        meedora<span className="text-primary">.</span>
-      </span>
-      <span className="mt-1 text-[14px] leading-none tracking-[0.09em]">Your everyday adore</span>
-    </Link>
-  )
+  return <MeedoraLogo variant={footer ? 'footer' : 'header'} priority />
 }
 
 function MegaMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
@@ -160,9 +154,9 @@ function MobileMenu({
   return (
     <Sheet open={open} onOpenChange={onClose}>
       <SheetContent side="left" className="overflow-y-auto">
-        <SheetHeader>
-          <SheetTitle>Explore Meedora</SheetTitle>
-          <SheetDescription>Your next everyday favourite.</SheetDescription>
+        <SheetHeader className="border-b border-border/40 pb-4 pt-2">
+          <MeedoraLogo variant="header" onClick={onClose} />
+          <SheetDescription className="sr-only">Explore Meedora navigation</SheetDescription>
         </SheetHeader>
         <nav className="px-5 py-6" aria-label="Mobile navigation">
           <Accordion>
