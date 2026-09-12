@@ -44,12 +44,12 @@ export function MeedoraLogo({
   } else if (variant === 'footer' || variant === 'full') {
     content = (
       <div className={cn('flex flex-col items-start text-left', className)}>
-        <div className="relative h-28 w-44 sm:h-32 sm:w-52 transition-transform duration-500 hover:scale-[1.02]">
+        <div className="relative h-14 w-60 sm:h-16 sm:w-72 transition-transform duration-500 hover:scale-[1.02]">
           <Image
-            src="/images/logo.png"
+            src="/images/Meedora_logomain_transparent.png"
             alt="Meedora — Adorn Yourself"
             fill
-            sizes="(max-width: 640px) 176px, 208px"
+            sizes="(max-width: 640px) 240px, 288px"
             priority={priority}
             className="object-contain object-left"
           />
@@ -59,28 +59,15 @@ export function MeedoraLogo({
   } else {
     // 'header' or 'horizontal'
     content = (
-      <div className={cn('flex items-center gap-2.5 sm:gap-3', className)}>
-        {/* Emblem */}
-        <div className="relative h-11 w-10 shrink-0 transition-transform duration-300 group-hover:scale-105 sm:h-12 sm:w-11">
-          <Image
-            src="/images/logo-mark.png"
-            alt=""
-            fill
-            sizes="48px"
-            priority={priority}
-            className="object-contain"
-          />
-        </div>
-
-        {/* Wordmark typography */}
-        <div className="flex flex-col justify-center">
-          <span className="font-serif text-2xl font-normal leading-none tracking-[-0.03em] text-foreground sm:text-3xl">
-            Meedora
-          </span>
-          <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.24em] text-amber-900/80 dark:text-amber-200/80 sm:text-[10px]">
-            Adorn Yourself
-          </span>
-        </div>
+      <div className={cn('relative h-11 w-48 sm:h-12 sm:w-56 transition-transform duration-300 group-hover:scale-[1.02]', className)}>
+        <Image
+          src="/images/Meedora_logomain_transparent.png"
+          alt="Meedora — Adorn Yourself"
+          fill
+          sizes="(max-width: 640px) 192px, 224px"
+          priority={priority}
+          className="object-contain object-left"
+        />
       </div>
     )
   }
