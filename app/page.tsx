@@ -9,6 +9,7 @@ import { EditBanners } from '@/components/edit-banners'
 import { GiftingSection } from '@/components/gifting-section'
 import { Button } from '@/components/ui/button'
 import { MeedoraLogo } from '@/components/meedora-logo'
+import { MeedoraHero } from '@/components/meedora-hero'
 
 export const revalidate = 60
 
@@ -42,43 +43,8 @@ export default async function HomePage() {
     <main id="main-content">
       {/* ─── 1. Announcement bar is mounted in site-header ─── */}
 
-      {/* ─── 2. Hero Section ─── */}
-      <section className="relative flex min-h-[85vh] items-center overflow-hidden bg-secondary/40">
-        <Image
-          src="/images/meedora-campaign.png"
-          alt="Meedora handcrafted jewelry — a woman adorning herself with gold-plated earrings"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-transparent" />
-        <div className="site-width relative z-10 py-20">
-          <div className="flex max-w-xl flex-col gap-6 hero-reveal">
-            <p className="eyebrow">Your everyday adore</p>
-            <h1 className="display-heading text-4xl sm:text-5xl lg:text-6xl">
-              Not waiting for an occasion.{' '}
-              <span className="text-primary block mt-1">Just you, choosing you.</span>
-            </h1>
-            <p className="max-w-md text-base leading-relaxed text-muted-foreground hero-reveal-delay">
-              Handcrafted imitation jewelry for women who adorn themselves — not
-              for someone else, not for a special day, but because they want to.
-            </p>
-            <div className="flex flex-wrap gap-3 hero-reveal-delay">
-              <Button size="lg" render={<Link href="/collections/all" />}>
-                Explore the collection <ArrowRight data-icon="inline-end" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                render={<Link href="/pages/about" />}
-              >
-                Our story
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ─── 2. Editorial Hero Carousel ─── */}
+      <MeedoraHero />
 
       {/* ─── 3. Shop by Category Grid ─── */}
       <CategoryGrid />
